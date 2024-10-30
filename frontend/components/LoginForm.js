@@ -1,29 +1,31 @@
-import React, { useState } from 'react';
-import PT from 'prop-types';
+import React, { useState } from 'react'
+import PT from 'prop-types'
 
 const initialFormValues = {
   username: '',
   password: '',
-};
+}
 
-export default function LoginForm({ login }) {
-  const [values, setValues] = useState(initialFormValues);
+export default function LoginForm(props) {
+  const [values, setValues] = useState(initialFormValues)
+  // ✨ where are my props? Destructure them here
+  const { login } = props
 
-  const onChange = (evt) => {
-    const { id, value } = evt.target;
-    setValues({ ...values, [id]: value });
-  };
+  const onChange = evt => {
+    const { id, value } = evt.target
+    setValues({ ...values, [id]: value })
+  }
 
-  const onSubmit = (evt) => {
-    evt.preventDefault();
-    // ✨ Call the login function from props with the current values
-    login(values);
-  };
+  const onSubmit = evt => {
+    evt.preventDefault()
+    login(values)
+  }
 
   const isDisabled = () => {
-    // ✨ Check the conditions for disabling the button
-    return values.username.trim().length < 3 || values.password.trim().length < 8;
-  };
+    const usernameLength = values.username.trim().length
+    const passwordLength = values.password.trim().length
+    return !(usernameLength >= 3 && passwordLength >= 8)
+  }
 
   return (
     <form id="loginForm" onSubmit={onSubmit}>
@@ -42,21 +44,12 @@ export default function LoginForm({ login }) {
         placeholder="Enter password"
         id="password"
       />
-      <button disabled={isDisabled()} id="submitCredentials">
-        Submit credentials
-      </button>
+      <button disabled={isDisabled()} id="submitCredentials">Submit credentials</button>
     </form>
-  );
+  )
 }
 
 // 🔥 No touchy: LoginForm expects the following props exactly:
 LoginForm.propTypes = {
   login: PT.func.isRequired,
-};
-
-// ✨ where are my props? Destructure them here
-// ✨ implement
-// ✨ implement
-// Trimmed username must be >= 3, and
-// trimmed password must be >= 8 for
-// the button to become enabled
+}

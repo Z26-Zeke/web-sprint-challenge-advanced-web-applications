@@ -1,5 +1,2 @@
-const nodeFetch = require('node-fetch')
-
-globalThis.fetch = nodeFetch
-globalThis.Request = nodeFetch.Request
-globalThis.Response = nodeFetch.Response
+// Soon Node will have fetch API and this won't be needed
+globalThis.fetch = require('node-fetch')

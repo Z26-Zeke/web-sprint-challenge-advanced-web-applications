@@ -4,9 +4,10 @@ In this challenge, you will write the logic for [THIS APP](https://advanced-apps
 
 ## Tools
 
-- Node >=18.x
-- NPM >=10.x (update NPM executing `npm i -g npm`)
+- Node 16.x
+- NPM 8.x (update NPM executing `npm i -g npm`)
 - Unix-like shell (Gitbash/bash/zsh)
+- Chrome >= 100.x
 
 ❗ Other configurations might work but haven't been tested.
 
@@ -58,12 +59,11 @@ The endpoints needed for this project are the following:
 
 ❗ Test drive all these endpoints with [Postman](https://www.postman.com/downloads/) before starting with the project.
 
-❗ You can use Axios or the native Fetch, to interact with the endpoints from your JavaScript.
-
 ## MVP
 
 In order to complete this project, you must fix the following modules:
 
+- [frontend/axios/index.js](frontend/axios/index.js)
 - [frontend/components/App.js](frontend/components/App.js)
 - [frontend/components/LoginForm.js](frontend/components/LoginForm.js)
 - [frontend/components/Articles.js](frontend/components/Articles.js)
